@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -23,6 +23,7 @@
 		58ECA90C1E7A1D2100C8A75E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58ECA90A1E7A1D2100C8A75E /* LaunchScreen.storyboard */; };
 		58ECA9171E7A1D2100C8A75E /* YWFilePreviewDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 58ECA9161E7A1D2100C8A75E /* YWFilePreviewDemoTests.m */; };
 		58ECA9221E7A1D2100C8A75E /* YWFilePreviewDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 58ECA9211E7A1D2100C8A75E /* YWFilePreviewDemoUITests.m */; };
+		C73740A92536AA1D0065934B /* AFNetworking in Frameworks */ = {isa = PBXBuildFile; productRef = C73740A82536AA1D0065934B /* AFNetworking */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C73740A92536AA1D0065934B /* AFNetworking in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,6 +105,7 @@
 				58ECA9151E7A1D2100C8A75E /* YWFilePreviewDemoTests */,
 				58ECA9201E7A1D2100C8A75E /* YWFilePreviewDemoUITests */,
 				58ECA8FA1E7A1D2100C8A75E /* Products */,
+				C73740392536A05C0065934B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -176,6 +179,13 @@
 			path = YWFilePreview;
 			sourceTree = "<group>";
 		};
+		C73740392536A05C0065934B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -192,6 +202,9 @@
 			dependencies = (
 			);
 			name = YWFilePreviewDemo;
+			packageProductDependencies = (
+				C73740A82536AA1D0065934B /* AFNetworking */,
+			);
 			productName = YWFilePreviewDemo;
 			productReference = 58ECA8F91E7A1D2100C8A75E /* YWFilePreviewDemo.app */;
 			productType = "com.apple.product-type.application";
@@ -265,10 +278,14 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
 			mainGroup = 58ECA8F01E7A1D2100C8A75E;
+			packageReferences = (
+				C73740A72536AA1D0065934B /* XCRemoteSwiftPackageReference "AFNetworking" */,
+			);
 			productRefGroup = 58ECA8FA1E7A1D2100C8A75E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -473,7 +490,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = T5PFJRPNYQ;
 				INFOPLIST_FILE = YWFilePreviewDemo/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.iss.YWFilePreviewDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -485,7 +505,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = T5PFJRPNYQ;
 				INFOPLIST_FILE = YWFilePreviewDemo/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.iss.YWFilePreviewDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -497,7 +520,11 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = T5PFJRPNYQ;
 				INFOPLIST_FILE = YWFilePreviewDemoTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.iss.YWFilePreviewDemoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/YWFilePreviewDemo.app/YWFilePreviewDemo";
@@ -510,7 +537,11 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = T5PFJRPNYQ;
 				INFOPLIST_FILE = YWFilePreviewDemoTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.iss.YWFilePreviewDemoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/YWFilePreviewDemo.app/YWFilePreviewDemo";
@@ -522,7 +553,11 @@
 			buildSettings = {
 				DEVELOPMENT_TEAM = T5PFJRPNYQ;
 				INFOPLIST_FILE = YWFilePreviewDemoUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.iss.YWFilePreviewDemoUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_TARGET_NAME = YWFilePreviewDemo;
@@ -534,7 +569,11 @@
 			buildSettings = {
 				DEVELOPMENT_TEAM = T5PFJRPNYQ;
 				INFOPLIST_FILE = YWFilePreviewDemoUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.iss.YWFilePreviewDemoUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_TARGET_NAME = YWFilePreviewDemo;
@@ -581,6 +620,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C73740A72536AA1D0065934B /* XCRemoteSwiftPackageReference "AFNetworking" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AFNetworking/AFNetworking";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C73740A82536AA1D0065934B /* AFNetworking */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C73740A72536AA1D0065934B /* XCRemoteSwiftPackageReference "AFNetworking" */;
+			productName = AFNetworking;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 58ECA8F11E7A1D2100C8A75E /* Project object */;
 }
