@@ -47,7 +47,7 @@
     NSURLRequest *request = [NSURLRequest requestWithURL:URL];
     
     YWFilePreviewController *_filePreview = [[YWFilePreviewController alloc] init];
-//    UIViewController *vc = [[UIViewController alloc] init];
+//    UIViewController *vc = [ViewController dc_findCurrentShowingViewController];
     
     //判断是否存在
     if([self isFileExist:fileName]) {
@@ -93,6 +93,40 @@
     NSFileManager *fileManager = [NSFileManager defaultManager];
     BOOL result = [fileManager fileExistsAtPath:filePath];
     return result;
+}
+
+// 获取当前显示的 UIViewController
++ (UIViewController *)dc_findCurrentShowingViewController {
+    //获得当前活动窗口的根视图
+    UIViewController *vc = [UIApplication sharedApplication].windows[0].rootViewController;
+    UIViewController *currentShowingVC = [self findCurrentShowingViewControllerFrom:vc];
+    return currentShowingVC;
+}
++ (UIViewController *)findCurrentShowingViewControllerFrom:(UIViewController *)vc
+{
+    // 递归方法 Recursive method
+    UIViewController *currentShowingVC;
+    if ([vc presentedViewController]) {
+        // 当前视图是被presented出来的
+        UIViewController *nextRootVC = [vc presentedViewController];
+        currentShowingVC = [self findCurrentShowingViewControllerFrom:nextRootVC];
+
+    } else if ([vc isKindOfClass:[UITabBarController class]]) {
+        // 根视图为UITabBarController
+        UIViewController *nextRootVC = [(UITabBarController *)vc selectedViewController];
+        currentShowingVC = [self findCurrentShowingViewControllerFrom:nextRootVC];
+
+    } else if ([vc isKindOfClass:[UINavigationController class]]){
+        // 根视图为UINavigationController
+        UIViewController *nextRootVC = [(UINavigationController *)vc visibleViewController];
+        currentShowingVC = [self findCurrentShowingViewControllerFrom:nextRootVC];
+
+    } else {
+        // 根视图为非导航类
+        currentShowingVC = vc;
+    }
+
+    return currentShowingVC;
 }
 
 @end
