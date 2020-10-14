@@ -41,7 +41,7 @@
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     
     AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
-    NSString *urlStr = @"https://www.tutorialspoint.com/ios/ios_tutorial.pdf";
+    NSString *urlStr = @"http://113.62.127.199:8090/fileUpload/1.docx";
     NSString *fileName = [urlStr lastPathComponent]; //获取文件名称
     NSURL *URL = [NSURL URLWithString:urlStr];
     NSURLRequest *request = [NSURLRequest requestWithURL:URL];
@@ -55,7 +55,7 @@
         NSURL *url = [documentsDirectoryURL URLByAppendingPathComponent:fileName];
         
         // 下载完成
-        NSArray *filePathArr = @[url];
+        NSArray *filePathArr = @[url.path];
         [_filePreview previewFileWithPaths:filePathArr on:self jump:YWJumpPresentAnimat];
     }else {
 //        [SVProgressHUD showWithStatus:@"下载中"];
@@ -69,7 +69,7 @@
 //            [SVProgressHUD dismiss];
             
             // 下载完成
-            NSArray *filePathArr = @[filePath];
+            NSArray *filePathArr = @[filePath.path];
             [_filePreview previewFileWithPaths:filePathArr on:self jump:YWJumpPresentAnimat];
 
         }];
